@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+</head>
+<body>
+
+<div class="topnav">
+    <a href="{% url 'front'%}">Home</a>
+    <a href="{% url 'home'%}">Create</a>
+    <a href="{% url 'view12'%}">View</a>
+</div>
+{% block content %}
+&nbsp;
+<h1>You can Create, Edit and Delete your Notes</h1>
+  {% endblock %}
+<div class="footer">&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+</body>
+</html>

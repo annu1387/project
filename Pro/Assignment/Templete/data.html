@@ -1,0 +1,33 @@
+{% extends "front.html" %}
+&nbsp;
+{% block content %}
+<head>
+    <script>
+    function ConfirmDelete()
+    {
+      var x = confirm("Are you sure you want to Delete the Note?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+    </script>
+</head>
+<body>
+&nbsp;
+<table>
+    <tr>
+        <td>
+{% for i in data %}
+&nbsp;
+<textarea rows="10" cols="50">{{i.msg}}</textarea><br>
+<a class="button" href="{% url 'edit' i.id %}">Edit</a>&nbsp;&nbsp;
+<a class="button" href="{% url 'deleted' i.id %}" Onclick="return ConfirmDelete();" type="submit" name="actiondelete">Delete</a><br><br>
+
+{% endfor %}
+            </td>
+    </tr>
+</table>
+&nbsp;
+</body>
+{% endblock %}

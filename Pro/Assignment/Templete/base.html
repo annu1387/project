@@ -1,0 +1,37 @@
+{% extends "front.html" %}
+{% block content %}
+<html>
+<head>
+    <title>Create your Notes</title>
+    <script>
+    function done(form)
+{
+var empt = document.forms["form1"]["textmsg"].value;
+if (empt == "")
+{
+alert("Notes Cannot be Empty\nEnter Notes");
+return false;
+}
+else
+{
+alert('You have Created your Notes Successfully.\nYou can view it on View Tab');
+return true;
+}
+}
+    </script>
+</head>
+<body>
+&nbsp;
+<form method="post" action="{% url 'saved'%}" name="form1" onsubmit="return done(this)">
+    {% csrf_token %}
+    &nbsp;<textarea rows="10" cols="50" name="textmsg" placeholder="Your Note Plz"></textarea><br>
+    <br>
+    <input type="submit" value="Save" style="width: 7%; height: 7%;">
+</form>
+
+</body>
+</html>
+  {% endblock %}
+
+</body>
+</html>
